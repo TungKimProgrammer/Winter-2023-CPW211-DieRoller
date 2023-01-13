@@ -12,9 +12,16 @@ namespace DieRoller
     public class Die
     {
         /// <summary>
+        /// Creates the die and rools it to start with a random number
+        /// </summary>
+        public Die()
+        {
+            Roll();
+        }
+        /// <summary>
         /// The Current Face up value of die
         /// </summary>
-        public byte FaceValue { get; set; }
+        public byte FaceValue { get; private set; }
 
         /// <summary>
         /// True if the die is currently held
@@ -27,7 +34,7 @@ namespace DieRoller
         /// <returns> Returns the new random number</returns>
         public byte Roll() {
             // Generate random number
-            Random random = new Random();
+            Random random = new ();
             byte newValue = (byte)random.Next(1, 7);
 
             // Set to FaceValue
